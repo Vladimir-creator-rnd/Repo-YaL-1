@@ -17,7 +17,7 @@ ORANGE = (255, 167, 29)
 WIDTH, HEIGHT = 500, 500
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Крестики-Нолики")
+pygame.display.set_caption("Гомоку")
 screen.fill(WHITE)
 font = pygame.font.Font(None, 40)
 bg = pygame.image.load("bg.jpg")
@@ -37,7 +37,8 @@ def main():
                 print('Custom')
             elif event.type == pygame.MOUSEBUTTONDOWN and (401 > x > 99) and (461 > y > 389):
                 print('Statistics')
-            print("Mouse position: ({}, {})".format(x, y))
+            # print("Mouse position: ({}, {})".format(x, y))
+            # Если не комментировать предыдущую строку, в консоль будут выводиться координаты мыши при каждом event
         hello = font.render(f"Лучший на свете", True, BLACK)
         hello1 = font.render(f'"ГОМОКУ"!', True, BLACK)
         screen.blit(hello, (140, 30))
