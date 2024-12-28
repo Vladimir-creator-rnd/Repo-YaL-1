@@ -113,16 +113,16 @@ def check_winner(board, player):
         for y in range(GRID_SIZE):
             if board[x][y] == player:
                 if x + 4 < GRID_SIZE and all(board[x + i][y] == player for i in range(5)):
-                    start_x_for_winner = (x + 1) * CELL_SIZE - CELL_SIZE / 2
+                    start_x_for_winner = (x + 1) * CELL_SIZE - CELL_SIZE
                     start_y_for_winner = (y + 1) * CELL_SIZE - CELL_SIZE / 2
-                    finish_x_for_winner = (x + 5) * CELL_SIZE - CELL_SIZE / 2
+                    finish_x_for_winner = (x + 5) * CELL_SIZE
                     finish_y_for_winner = (y + 1) * CELL_SIZE - CELL_SIZE / 2
                     return True
                 if y + 4 < GRID_SIZE and all(board[x][y + i] == player for i in range(5)):
                     start_x_for_winner = (x + 1) * CELL_SIZE - CELL_SIZE / 2
-                    start_y_for_winner = (y + 1) * CELL_SIZE - CELL_SIZE / 2
+                    start_y_for_winner = (y + 1) * CELL_SIZE - CELL_SIZE
                     finish_x_for_winner = (x + 1) * CELL_SIZE - CELL_SIZE / 2
-                    finish_y_for_winner = (y + 5) * CELL_SIZE - CELL_SIZE / 2
+                    finish_y_for_winner = (y + 5) * CELL_SIZE
                     return True
                 if x + 4 < GRID_SIZE and y + 4 < GRID_SIZE and all(board[x + i][y + i] == player for i in range(5)):
                     start_x_for_winner = (x + 1) * CELL_SIZE - CELL_SIZE / 2
@@ -185,10 +185,10 @@ def main():
             for y in range(GRID_SIZE):
                 if board[x][y] == "X":
                     pygame.draw.circle(screen, RED, (x * CELL_SIZE + CELL_SIZE // 2,
-                                                     y * CELL_SIZE + CELL_SIZE // 2), CELL_SIZE // 2 - 5)
+                                                     y * CELL_SIZE + CELL_SIZE // 2), CELL_SIZE // 2 - 0.5)
                 elif board[x][y] == "O":
                     pygame.draw.circle(screen, BLUE, (x * CELL_SIZE + CELL_SIZE // 2,
-                                                     y * CELL_SIZE + CELL_SIZE // 2), CELL_SIZE // 2 - 5)
+                                                     y * CELL_SIZE + CELL_SIZE // 2), CELL_SIZE // 2 - 0.5)
 
         if draw_winner_line(screen):
             draw_winner_line(screen)
